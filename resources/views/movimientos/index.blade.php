@@ -22,20 +22,20 @@
             <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                        <th>FECHA</th>
-                        <th>DESCRIPCION</th>
                         <th>RETIROS</th>
                         <th>DEPOSITOS</th>
+                        <th width="10%">FECHA</th>
+                        <th width="20%">DESCRIPCION</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach($movimientos as $movimiento)
                     <tr>
-                        <td>{{$movimiento->fecha}}</td>
-                        <td>{{$movimiento->descripcion}}</td>
                         <td>L {{number_format($movimiento->retiros,2)}} </td>
                         <td>L {{number_format($movimiento->debitos,2)}} </td>
+                        <td>{{$movimiento->fecha}}</td>
+                        <td>{{$movimiento->descripcion}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -80,10 +80,9 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
             },
-            responsive: false,
+            responsive: true,
             paging: false,
-            info: false
-
+            info: false,
         });
     });
 </script>
