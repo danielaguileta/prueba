@@ -150,7 +150,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-                        <button type="submit" class="btn btn-primary">Retirar</button>
+                        <button type="submit" class="btn btn-primary">Depositar</button>
                     </div>
                 </form>
             </div>
