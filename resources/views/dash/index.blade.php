@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-1">
                                 <div class="form-group">
-                                    <strong><span class="hide" id="" style="color:black;position: absolute;margin-top: 38px;">Lps</span></strong>
+                                    <strong><span class="hide" id="" style="color:white;position: absolute;margin-top: 38px;">Lps</span></strong>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="col-1">
                                 <div class="form-group">
-                                    <strong><span class="hide" id="" style="color:black;position: absolute;margin-top: 38px;">Lps</span></strong>
+                                    <strong><span class="hide" id="" style="color:white;position: absolute;margin-top: 38px;">Lps</span></strong>
                                 </div>
                             </div>
                         </div>
