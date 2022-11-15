@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacionRequest;
 use App\Models\Movimiento;
 use App\Models\Retiro;
 use Carbon\Carbon;
@@ -35,7 +36,7 @@ class RetiroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidacionRequest $request)
     {
         $retiros = Retiro::create([
               'cantidad' => $request->cantidad,
