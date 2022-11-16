@@ -19,7 +19,7 @@
 
             </div>
 
-            <table id="clientes" class="display responsive nowrap" style="width:100%">
+            <table id="clientes" class="display responsive nowrap" style="width:50%">
                 <thead>
                     <tr>
                         <th>RETIROS</th>
@@ -32,8 +32,8 @@
 
                     @foreach($movimientos as $movimiento)
                     <tr>
-                        <td>L {{number_format($movimiento->retiros,2)}} </td>
-                        <td>L {{number_format($movimiento->debitos,2)}} </td>
+                        <td width="15%"><strong><span class="hide" id="" style="color:red"> L {{number_format($movimiento->retiros,2)}} </td></span></strong>
+                        <td width="15%" >L {{number_format($movimiento->debitos,2)}} </td>
                         <td>{{$movimiento->fecha}}</td>
                         <td>{{$movimiento->descripcion}}</td>
                     </tr>
