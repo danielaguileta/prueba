@@ -74,7 +74,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="" value="{{old('cantidad')}}">
+                                    <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad a retirar" value="{{old('cantidad')}}">
                                     <div id="msgretiro" class="text-danger"></div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Descripcion</label>
-                                    <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="">{{old('desc')}}</textarea>
+                                    <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="Ingrese un comentario.(Puede dejarlo en blanco tambien)">{{old('desc')}}</textarea>
                                     @error('desc')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
@@ -122,7 +122,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad_deposito" name="cantidad_deposito" placeholder="" value="{{old('cantidad_deposito')}}">
+                                    <input type="number" class="form-control" id="cantidad_deposito" name="cantidad_deposito" placeholder="Ingrese la cantidad a depositar" value="{{old('cantidad_deposito')}}">
                                     <div id="depositomsg" class="text-danger"></div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Descripcion</label>
-                                    <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="">{{old('desc')}}</textarea>
+                                    <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="Ingrese un comentario.(Puede dejarlo en blanco tambien)">{{old('desc')}}</textarea>
     
                                 </div>
                             </div>
