@@ -19,8 +19,8 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="">Cantidad</label>
-                            <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="" value="{{old('cantidad')}}">
-                            @error('cantidad')
+                            <input type="number" class="form-control" id="cantidad_deposito" name="cantidad_deposito" placeholder="" value="{{old('cantidad_deposito')}}">
+                            @error('cantidad_deposito')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>

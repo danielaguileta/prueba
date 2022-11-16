@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacionDepoRequest;
 use App\Http\Requests\ValidacionRequest;
 use App\Models\Deposito;
 use App\Models\Movimiento;
@@ -35,17 +36,17 @@ class DepositoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ValidacionRequest $request)
+    public function store(ValidacionDepoRequest $request)
     {
         $depositos = Deposito::create([
-            'cantidad' => $request->cantidad,
+            'cantidad' => $request->cantidad_deposito,
             'descripcion' => $request->desc,
             'fecha' => Carbon::now()
         ]);
 
         $depositos = Movimiento::create([
             'retiros' => 0.00,
-            'debitos' => $request->cantidad,
+            'debitos' => $request->cantidad_deposito,
             'descripcion' => $request->desc,
             'fecha' => Carbon::now()
         ]);

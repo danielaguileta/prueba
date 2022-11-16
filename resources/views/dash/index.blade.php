@@ -67,7 +67,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('retiro.store')}}" method="POST">
+                <form action="{{route('retiro.store')}}" id="retiroM" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -75,9 +75,7 @@
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
                                     <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="" value="{{old('cantidad')}}">
-                                    @error('cantidad')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                    <div id="msgretiro" class="text-danger"></div>
                                 </div>
                             </div>
                             <div class="col-1">
@@ -117,17 +115,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('deposito.store')}}" method="POST">
+                <form action="{{route('deposito.store')}}"id="depositoM" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad" name="cantidad" placeholder="" value="{{old('cantidad')}}">
-                                    @error('cantidad')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                    <input type="number" class="form-control" id="cantidad_deposito" name="cantidad_deposito" placeholder="" value="{{old('cantidad_deposito')}}">
+                                    <div id="depositomsg" class="text-danger"></div>
                                 </div>
                             </div>
                             <div class="col-1">
@@ -141,9 +137,7 @@
                                 <div class="form-group">
                                     <label for="">Descripcion</label>
                                     <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="">{{old('desc')}}</textarea>
-                                    @error('desc')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+    
                                 </div>
                             </div>
                         </div>
@@ -168,8 +162,59 @@
 @stop
 
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script>
     console.log('Hi!');
 </script>
 <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+<!-- <script>
+    $(function() {
+
+$("#newModalForm").validate({
+  rules: {
+    cantidad: {
+      required: true,
+    },
+    action: "required"
+  },
+  messages: {
+    cantidad: {
+      required: "El campo cantidad es requerido",
+      
+    },
+    action: "Please provide some data"
+  }
+});
+});
+</script>  -->
+<script>
+    $(document).ready(function() {
+  $("#depositoM").submit(function() {
+    var query = document.getElementById('cantidad_deposito');
+    if (query.value == "") {
+      $('#depositomsg').html("El campo es requerido")
+      return false; //form will not submit and modal will remain open
+    }
+    return true; //form will get submitted and modal will close due to page being changed/reloaded
+  })
+});
+</script>
+<script>
+    $(document).ready(function() {
+  $("#retiroM").submit(function() {
+    var query = document.getElementById('cantidad');
+    if (query.value == "") {
+      $('#msgretiro').html("El campo es requerido")
+      return false; //form will not submit and modal will remain open
+    }
+    return true; //form will get submitted and modal will close due to page being changed/reloaded
+  })
+});
+</script>
+
+
 @stop
+
+
