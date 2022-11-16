@@ -19,7 +19,7 @@
 
             </div>
 
-            <table id="clientes" class="display responsive nowrap" style="width:50%">
+            <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>RETIROS</th>
