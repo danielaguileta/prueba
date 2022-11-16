@@ -45,7 +45,7 @@ class DepositoController extends Controller
         ]);
 
         $depositos = Movimiento::create([
-            'retiros' => 0.00,
+            'retiros' => '--',
             'debitos' => $request->cantidad_deposito,
             'descripcion' => $request->desc,
             'fecha' => Carbon::now()

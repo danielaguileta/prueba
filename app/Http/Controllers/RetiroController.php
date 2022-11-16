@@ -46,7 +46,7 @@ class RetiroController extends Controller
 
         $retiros = Movimiento::create([
             'retiros' => $request->cantidad,
-            'debitos' => 0,
+            'debitos' => '--',
             'descripcion'=> $request->desc,
             'fecha' => Carbon::now()
       ]);
