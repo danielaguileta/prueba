@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-4 col-4">
+    <div class="col-lg-3 col-3">
 
         <div class="small-box bg-info">
             <div class="inner">
@@ -23,21 +23,25 @@
             </div>
             <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
         </div>
-        <div class="small-box bg-warning">
-            <div class="inner">
-                
-                <h5>L</h5>
-                <p>Saldo Pendiente</p>
-
-            </div>
-            <div class="icon">
-                <i class="fas fa-dollar-sign"></i>
-            </div>
-            <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
-        </div>
     </div>
+    <div class="col-lg-3 col-3">
 
-    <div class="col-lg-4 col-4">
+<div class="small-box bg-warning">
+    <div class="inner">
+        @foreach($saldo as $saldo)
+        <h5>L {{number_format($saldo->total,2)}}</h5>
+        @endforeach
+        <p>Saldo Disponible</p>
+
+    </div>
+    <div class="icon">
+        <i class="fas fa-dollar-sign"></i>
+    </div>
+    <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
+</div>
+</div>
+
+    <div class="col-lg-3 col-3">
         <div class="small-box bg-success">
             <div class="inner">
                 @foreach($depositos as $deposito)
@@ -51,7 +55,7 @@
             <a href="#" class="small-box-footer" data-toggle="modal" data-target="#exampleModal2">Depositar<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-4 col-4">
+    <div class="col-lg-3 col-3">
 
         <div class="small-box bg-danger">
             <div class="inner">
