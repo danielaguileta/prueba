@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('movimientos', function (Blueprint $table) {
+        Schema::create('saldo_pendiente', function (Blueprint $table) {
             $table->increments('id');
+            $table->decimal('cantidad',10,2);
             $table->string('descripcion', 255)->nullable();
             $table->date('fecha')->format('d/m/Y');
-            $table->string('debitos',50);
-            $table->string('retiros',50);
+            $table->string('status',20);
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movimientos');
+        Schema::dropIfExists('saldo_pendiente');
     }
 };

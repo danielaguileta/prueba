@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\MovimientosController;
 use App\Http\Controllers\RetiroController;
+use App\Http\Controllers\SaldoPendienteController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('deposito',DepositoController::class)->names('deposito');  
     Route::resource('movimientos',MovimientosController::class)->names('movimientos');  
     Route::resource('profile/show',Controller::class)->names('profile');
+    Route::resource('pendiente',SaldoPendienteController::class)->names('saldo_pendiente');
 });

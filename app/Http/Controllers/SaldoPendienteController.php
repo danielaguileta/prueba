@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movimiento;
-use App\Models\Retiro;
 use App\Models\SaldoPendiente;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class DashboardController extends Controller
+class SaldoPendienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +16,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $saldo = Movimiento::select(DB::raw('SUM(debitos-retiros) as total'))
-                    ->get();
-       /*  $retiros = Movimiento::count(); */
-        $retiros = Movimiento::select(DB::raw('SUM(retiros) as total'))
+        /*  $movimientos = Movimiento::all(); */
+        $pendientes = DB::table('saldo_pendiente')
+        ->where('status', '=', 'Pendiente')
         ->get();
-        $depositos = Movimiento::select(DB::raw('SUM(debitos) as total'))
-        ->get();
-        $pendientes = SaldoPendiente::select(DB::raw('SUM(cantidad) as total'))
-        ->get();
-        return view('dash.index', compact('saldo','retiros','depositos','pendientes'));
+        return view('saldo_pendiente.index', compact('pendientes'));
     }
 
     /**
@@ -48,8 +41,14 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-      
+        $pendientes = SaldoPendiente::create([
+            'cantidad' => $request->cantidad_saldo,
+            'descripcion' => $request->desc,
+            'fecha' => Carbon::now(),
+            'status' => 'Pendiente',
+        ]);
 
+        return redirect()-> route('dashboard.index')->with('agregado','Transaccion exitosa'); 
     }
 
     /**
@@ -71,7 +70,7 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-        //
+      
     }
 
     /**
@@ -83,7 +82,11 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pendientes =SaldoPendiente::findorfail($id);
+        $pendientes->status = 'Pagado';
+        $pendientes->save();
+
+       return redirect()-> route('dashboard.index')->with('agregado','Transaccion exitosa'); 
     }
 
     /**
@@ -94,6 +97,10 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pendientes = SaldoPendiente::find($id);
+        $pendientes->status = 'Pago';
+        $pendientes->save();
+        return redirect()-> route('dashboard.index')->with('agregado','Transaccion exitosa'); 
+
     }
 }

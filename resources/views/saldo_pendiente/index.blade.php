@@ -1,20 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'Movimientos')
+@section('title', 'Saldo Pendiente')
 
 @section('content_header')
 
 @stop
 
 @section('content')
-
 <div class="col-md-12"><br>
-    <div class="card card-danger">
+    <div class="card card-warning">
         <div class="card-header">
-            <h3 class="card-title">Movimientos</h3>
+            <h3 class="card-title">Saldo Pendiente</h3>
         </div>
         <div class="card-body">
-            @csrf
+       
             <div class="card-content">
 
             </div>
@@ -22,22 +21,34 @@
             <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th>FECHA</th>
-                        <th></th>
+                        <th width="1%">FECHA</th>
+                        <th width="1%">SALDO</th>
+                        <th width="1%">Acciones</th>
                         <th>DESCRIPCION</th>
+
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($movimientos as $movimiento)
+                    @foreach($pendientes as $pendiente)
                     <tr>
-                    <td>{{$movimiento->fecha}}</td>
-                        @if($movimiento->retiros == '--')
-                        <td>L {{number_format($movimiento->debitos,2)}} </td>
-                        @else
-                        <td><strong><span class="hide" id="" style="color:red">- L {{number_format($movimiento->retiros,2)}} </td></span></strong>
-                        @endif
-                        <td>{{$movimiento->descripcion}}</td>
+                        <td>{{$pendiente->fecha}}</td>
+
+                        <td>{{$pendiente->cantidad}}</td>
+                        <td width='10px'>
+                            <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="eliminar_cliente">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn btn-dark">
+                                   PAGAR
+                                </button>
+                            </form>
+
+                        </td>
+                       
+                        <td>{{$pendiente->descripcion}}</td>
+
+
                     </tr>
                     @endforeach
                 </tbody>
@@ -52,6 +63,7 @@
     </div>
     <!-- /.card -->
 </div>
+
 @stop
 
 @section('css')

@@ -335,22 +335,17 @@ return [
             'icon' => 'fas fa-home',
             
         ],
-        [
-            'text' => 'Depositar',
-            'route'  => 'deposito.index',
-            'icon' => 'fas fa-vote-yea',
-            
-            
-        ],
-        [
-            'text' => 'Retirar',
-            'route'  => 'retiro.index',
-            'icon' => 'fas fa-money-bill-alt',
-
-        ],
+       
+      
         [
             'text' => 'Movimientos',
             'route'  => 'movimientos.index',
+            'icon' => 'fas fa-chart-line',
+
+        ],
+        [
+            'text' => 'Saldo Pendiente',
+            'route'  => 'saldo_pendiente.index',
             'icon' => 'fas fa-chart-line',
 
         ],
