@@ -70,9 +70,6 @@
             <a href="#" class="small-box-footer" data-toggle="modal" data-target="#retiro_modal">Retirar<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-
-
-
     <!-- Modal RETIRO -->
     <div class="modal fade" id="retiro_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -208,7 +205,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Regresar</button>
-                        <button type="submit" class="btn btn-primary">Retirar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                     </div>
                 </form>
             </div>

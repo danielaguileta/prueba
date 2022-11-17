@@ -21,11 +21,10 @@
             <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th width="1%">FECHA</th>
-                        <th width="1%">SALDO</th>
-                        <th width="1%">Acciones</th>
+                        <th width="2%">FECHA</th>
+                        <th width="2%">SALDO</th>
+                        <th width="2%">Acciones</th>
                         <th>DESCRIPCION</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +34,7 @@
                         <td>{{$pendiente->fecha}}</td>
 
                         <td>{{$pendiente->cantidad}}</td>
-                        <td width='10px'>
+                        <td>
                             <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="eliminar_cliente">
                                 @csrf
                                 @method('PUT')
