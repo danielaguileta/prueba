@@ -45,7 +45,7 @@
         <div class="small-box bg-success">
             <div class="inner">
                 @foreach($depositos as $deposito)
-                <h5>L {{number_format($deposito->total,2)}}</h5>
+                <h5 class="text-white">L {{number_format($deposito->total,2)}}</h5>
                 @endforeach
                 <p>Depositos</p>
             </div>
