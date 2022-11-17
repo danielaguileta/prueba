@@ -346,7 +346,7 @@ return [
         [
             'text' => 'Saldo Pendiente',
             'route'  => 'saldo_pendiente.index',
-            'icon' => 'fas fa-chart-line',
+            'icon' => 'fas fa-piggy-bank',
 
         ],
        /*  [
