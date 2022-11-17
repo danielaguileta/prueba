@@ -32,7 +32,7 @@ class ValidacionDepoRequest extends FormRequest
     {
         return[
             /* Validacion campo NOMBRE CLIENTE */
-            'cantidad_deposito.required' => 'El campo nombre  es requerido. No puede estar vacio.' ,
+            'cantidad_deposito.required' => 'El campo cantidad  es requerido. No puede estar vacio.' ,
             'cantidad_deposito.numeric' => 'El campo cantidad solo puede contener numeros.' ,
         ];
     }

@@ -34,7 +34,7 @@ class ValidacionRequest extends FormRequest
     {
         return[
             /* Validacion campo NOMBRE CLIENTE */
-             'cantidad.required' => 'El campo nombre  es requerido. No puede estar vacio.' ,
+             'cantidad.required' => 'El campo cantidad  es requerido. No puede estar vacio.' ,
               'cantidad.numeric' => 'El campo cantidad solo puede contener numeros.' ,
         ];
     }
