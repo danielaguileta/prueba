@@ -22,28 +22,21 @@
             <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
-                        <th>RETIROS</th>
-                        <th>DEPOSITOS</th>
-                        <th width="10%">FECHA</th>
-                        <th width="20%">DESCRIPCION</th>
+                        <th>FECHA</th>
+                        <th>DESCRIPCION</th>
+                        <th width="20%">SALDO</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach($movimientos as $movimiento)
                     <tr>
-                        @if($movimiento->retiros == '--')
-                        <td class="text-center" width="15%"><strong><span class="hide" id="" style="color:red">{{($movimiento->retiros)}} </td></span></strong>
+                        <td>{{$movimiento->fecha}}</td>
+                        @if($movimiento->retiros == '--' )
+                        <td width="15%">L {{number_format($movimiento->debitos,2)}} </td>
                         @else
                         <td width="15%"><strong><span class="hide" id="" style="color:red"> L {{number_format($movimiento->retiros,2)}} </td></span></strong>
                         @endif
-                        @if($movimiento->debitos == '--')
-                        <td width="15%"><strong><span class="hide" id="" style="color:red">{{($movimiento->debitos)}} </td></span></strong>
-                        @else
-                        <td width="15%">L {{number_format($movimiento->debitos,2)}} </td>
-                        @endif
-                        <td>{{$movimiento->fecha}}</td>
-                        <td>{{$movimiento->descripcion}}</td>
                     </tr>
                     @endforeach
                 </tbody>
