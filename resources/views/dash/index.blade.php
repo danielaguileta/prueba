@@ -28,9 +28,9 @@
 
 <div class="small-box bg-warning">
     <div class="inner">
-        @foreach($saldo as $saldo)
-        <h5>L {{number_format($saldo->total,2)}}</h5>
-        @endforeach
+       
+        <h5>L </h5>
+        
         <p>Saldo Disponible</p>
 
     </div>
