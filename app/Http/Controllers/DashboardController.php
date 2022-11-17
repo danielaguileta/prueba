@@ -26,6 +26,7 @@ class DashboardController extends Controller
         $depositos = Movimiento::select(DB::raw('SUM(debitos) as total'))
         ->get();
         $pendientes = SaldoPendiente::select(DB::raw('SUM(cantidad) as total'))
+        ->where('status' ,'=', 'Pendiente')
         ->get();
         return view('dash.index', compact('saldo','retiros','depositos','pendientes'));
     }

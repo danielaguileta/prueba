@@ -133,7 +133,7 @@ $(function(){
     @endif
 </script>
 <script>
-    $('.eliminar_cliente').submit(function(e) {
+    $('.pagar').submit(function(e) {
         e.preventDefault();
 
         Swal.fire({
