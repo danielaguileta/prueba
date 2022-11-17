@@ -41,6 +41,7 @@
                             <td width="15%"><strong><span class="hide" id="" style="color:red">{{($movimiento->debitos)}} </td></span></strong>
                         @else
                         <td width="15%" >L {{number_format($movimiento->debitos,2)}} </td>
+                        @endif
                         <td>{{$movimiento->fecha}}</td>
                         <td>{{$movimiento->descripcion}}</td>
                     </tr>
