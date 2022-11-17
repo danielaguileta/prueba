@@ -1,7 +1,5 @@
 <x-guest-layout>
-<div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">REGISTRAR</a>
-</div>
+
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
