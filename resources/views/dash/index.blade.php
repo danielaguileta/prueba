@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-3 col-3">
+    <div class="col-lg-3 col-6">
 
         <div class="small-box bg-info">
             <div class="inner">
@@ -24,24 +24,24 @@
             <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-3 col-3">
+    <div class="col-lg-3 col-6">
 
-<div class="small-box bg-warning">
-    <div class="inner">
-       
-        <h5>L </h5>
-        
-        <p>Saldo Disponible</p>
+        <div class="small-box bg-warning">
+            <div class="inner">
 
+                <h5>L </h5>
+
+                <p>Saldo Disponible</p>
+
+            </div>
+            <div class="icon">
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+            <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
+        </div>
     </div>
-    <div class="icon">
-        <i class="fas fa-dollar-sign"></i>
-    </div>
-    <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
-</div>
-</div>
 
-    <div class="col-lg-3 col-3">
+    <div class="col-lg-3 col-6">
         <div class="small-box bg-success">
             <div class="inner">
                 @foreach($depositos as $deposito)
@@ -55,7 +55,7 @@
             <a href="#" class="small-box-footer" data-toggle="modal" data-target="#exampleModal2">Depositar<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-3 col-3">
+    <div class="col-lg-3 col-6">
 
         <div class="small-box bg-danger">
             <div class="inner">
@@ -131,7 +131,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('deposito.store')}}"id="depositoM" method="POST">
+                <form action="{{route('deposito.store')}}" id="depositoM" method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
@@ -153,7 +153,7 @@
                                 <div class="form-group">
                                     <label for="">Descripcion</label>
                                     <textarea class="form-control" rows="3" name="desc" id="desc" placeholder="Ingrese un comentario.(Puede dejarlo en blanco tambien)">{{old('desc')}}</textarea>
-    
+
                                 </div>
                             </div>
                         </div>
@@ -207,30 +207,28 @@ $("#newModalForm").validate({
 </script>  -->
 <script>
     $(document).ready(function() {
-  $("#depositoM").submit(function() {
-    var query = document.getElementById('cantidad_deposito');
-    if (query.value == "") {
-      $('#depositomsg').html("El campo es requerido")
-      return false; //form will not submit and modal will remain open
-    }
-    return true; //form will get submitted and modal will close due to page being changed/reloaded
-  })
-});
+        $("#depositoM").submit(function() {
+            var query = document.getElementById('cantidad_deposito');
+            if (query.value == "") {
+                $('#depositomsg').html("El campo es requerido")
+                return false; //form will not submit and modal will remain open
+            }
+            return true; //form will get submitted and modal will close due to page being changed/reloaded
+        })
+    });
 </script>
 <script>
     $(document).ready(function() {
-  $("#retiroM").submit(function() {
-    var query = document.getElementById('cantidad');
-    if (query.value == "") {
-      $('#msgretiro').html("El campo es requerido")
-      return false; //form will not submit and modal will remain open
-    }
-    return true; //form will get submitted and modal will close due to page being changed/reloaded
-  })
-});
+        $("#retiroM").submit(function() {
+            var query = document.getElementById('cantidad');
+            if (query.value == "") {
+                $('#msgretiro').html("El campo es requerido")
+                return false; //form will not submit and modal will remain open
+            }
+            return true; //form will get submitted and modal will close due to page being changed/reloaded
+        })
+    });
 </script>
 
 
 @stop
-
-
