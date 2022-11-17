@@ -31,7 +31,7 @@
 
                 <h5>L </h5>
 
-                <p>Saldo Disponible</p>
+                <p>Saldo Pendiente</p>
 
             </div>
             <div class="icon">
