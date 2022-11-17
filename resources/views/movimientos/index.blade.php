@@ -121,4 +121,31 @@ $(function(){
     toastr.success("{{ session('agregado') }}");
     @endif
 </script>
+<script>
+    $('.pagar').submit(function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Pagar?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#5cb85c',
+            cancelButtonText: 'Regresar',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, pagar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                /*     Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                ) */
+
+                this.submit();
+            }
+        })
+
+    });
+</script>
 @stop

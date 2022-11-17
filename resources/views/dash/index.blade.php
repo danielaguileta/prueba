@@ -181,7 +181,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad" name="cantidad_saldo" placeholder="Ingrese cantidad" value="{{old('cantidad')}}">
+                                    <input type="number" class="form-control" id="cantidad_saldo" name="cantidad_saldo" placeholder="Ingrese cantidad" value="{{old('cantidad_saldo')}}">
                                     <div id="msgsaldo" class="text-danger"></div>
                                 </div>
                             </div>

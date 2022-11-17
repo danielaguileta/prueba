@@ -35,7 +35,7 @@
 
                         <td>{{$pendiente->cantidad}}</td>
                         <td>
-                            <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="eliminar_cliente">
+                            <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="pagar">
                                 @csrf
                                 @method('PUT')
                                 <button class="btn btn-dark">
@@ -131,5 +131,32 @@ $(function(){
     }
     toastr.success("{{ session('agregado') }}");
     @endif
+</script>
+<script>
+    $('.eliminar_cliente').submit(function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Pagar?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#5cb85c',
+            cancelButtonText: 'Regresar',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, pagar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                /*     Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                ) */
+
+                this.submit();
+            }
+        })
+
+    });
 </script>
 @stop
