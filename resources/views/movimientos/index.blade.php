@@ -31,8 +31,9 @@
 
                     @foreach($movimientos as $movimiento)
                     <tr>
-                        <td>{{$movimiento->fecha}}</td>
-                        @if($movimiento->retiros == '--' )
+                    <td>{{$movimiento->fecha}}</td>
+                    <td>{{$movimiento->descripcion}}</td>
+                        @if($movimiento->retiros == '--')
                         <td width="15%">L {{number_format($movimiento->debitos,2)}} </td>
                         @else
                         <td width="15%"><strong><span class="hide" id="" style="color:red"> L {{number_format($movimiento->retiros,2)}} </td></span></strong>
