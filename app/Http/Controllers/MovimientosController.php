@@ -17,7 +17,7 @@ class MovimientosController extends Controller
 
     {
        /*  $movimientos = Movimiento::all(); */
-        $movimientos = DB::table('movimientos')->orderBy('id','asc')->get();
+        $movimientos = DB::table('movimientos')->orderBy('id','desc')->get();
         return view('movimientos.index', compact('movimientos'));
 
       
