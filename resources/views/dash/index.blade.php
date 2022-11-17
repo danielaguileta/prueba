@@ -23,6 +23,18 @@
             </div>
             <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
         </div>
+        <div class="small-box bg-warning">
+            <div class="inner">
+                
+                <h5>L</h5>
+                <p>Saldo Pendiente</p>
+
+            </div>
+            <div class="icon">
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+            <a href="{{route('movimientos.index')}}" class="small-box-footer">Movimientos<i class="fas fa-arrow-circle-right"></i></a>
+        </div>
     </div>
 
     <div class="col-lg-4 col-4">
