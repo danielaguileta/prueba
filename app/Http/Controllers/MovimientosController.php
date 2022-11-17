@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movimiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovimientosController extends Controller
 {
@@ -15,9 +16,13 @@ class MovimientosController extends Controller
     public function index()
 
     {
-        $movimientos = Movimiento::all();
+       /*  $movimientos = Movimiento::all(); */
+        $movimientos = DB::table('movimientos')->orderBy('name','asc')->get();
         return view('movimientos.index', compact('movimientos'));
+
+      
     }
+
 
     /**
      * Show the form for creating a new resource.
