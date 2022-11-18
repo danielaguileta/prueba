@@ -35,7 +35,7 @@
                         @if($movimiento->retiros == '--')
                         <td>L {{number_format($movimiento->debitos,2)}} </td>
                         @else
-                        <td><strong><span class="hide" id="" style="color:red">- L {{number_format($movimiento->retiros,2)}} </td></span></strong>
+                        <td><strong><span class="hide" id="" style="color:red">-L {{number_format($movimiento->retiros,2)}} </td></span></strong>
                         @endif
                         <td>{{$movimiento->descripcion}}</td>
                     </tr>
