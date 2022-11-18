@@ -23,7 +23,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>FECHA</th>
-                        <th></th>
+                        <th>MONTO</th>
                         <th>DESCRIPCION</th>
                     </tr>
                 </thead>
