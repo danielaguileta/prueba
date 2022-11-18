@@ -13,15 +13,15 @@
             <h3 class="card-title">Saldo Pendiente</h3>
         </div>
         <div class="card-body">
-       
+
             <div class="card-content">
 
             </div>
-<style>
-    table.dataTable thead tr {
-  background-color: black;
-}
-</style>
+            <style>
+                table.dataTable thead tr {
+                    background-color: black;
+                }
+            </style>
             <table id="clientes" class="display responsive nowrap" style="width:100%">
                 <thead class="text-white">
                     <tr>
@@ -43,12 +43,12 @@
                                 @csrf
                                 @method('PUT')
                                 <button class="btn btn-dark">
-                                   PAGAR
+                                    PAGAR
                                 </button>
                             </form>
 
                         </td>
-                       
+
                         <td>{{$pendiente->descripcion}}</td>
 
 

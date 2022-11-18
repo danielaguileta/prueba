@@ -28,7 +28,7 @@
 
         <div class="small-box bg-warning">
             <div class="inner">
-            @foreach($pendientes as $pendientes)
+                @foreach($pendientes as $pendientes)
                 <h4>L {{number_format($pendientes->total,2)}}</h4>
 
                 <p>Saldo Pendiente</p>
@@ -37,7 +37,7 @@
             <div class="icon">
                 <i class="fas fa-dollar-sign"></i>
             </div>
-            <a href="#" class="small-box-footer"  data-toggle="modal" data-target="#saldo_pendiente_modal">Saldo Pendiente<i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#saldo_pendiente_modal">Saldo Pendiente<i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
@@ -164,8 +164,8 @@
         </div>
     </div>
 
-        <!-- Modal SALDO PENDIENTE -->
-        <div class="modal fade" id="saldo_pendiente_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal SALDO PENDIENTE -->
+    <div class="modal fade" id="saldo_pendiente_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -213,18 +213,96 @@
     </div>
 
 </div>
+
+<div class="row">
+
+    <section class="col-lg-12 connectedSortable ui-sortable">
+
+        <div class="card-secondary" style="position: relative; left: 0px; top: 0px;">
+            <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">
+                <i class="fa fa-exclamation-circle"></i>
+                    Pendiente
+                </h3>
+
+            </div>
+            <div class="card-body">
+               <!--  <style>
+                    table.dataTable thead tr {
+                        background-color: black;
+                    }
+                </style> -->
+                <table id="clientes" class="display responsive nowrap" style="width:100%">
+                    <thead class="">
+                        <tr>
+                            <th width="2%">FECHA</th>
+                            <th width="2%">SALDO</th>
+                            <th width="2%">Acciones</th>
+                            <th>DESCRIPCION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach($pendiente as $pendiente)
+                        <tr>
+                            <td>{{$pendiente->fecha}}</td>
+
+                            <td>{{$pendiente->cantidad}}</td>
+                            <td>
+                                <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="pagar">
+                                    @csrf
+                                    @method('PUT')
+                                    <button class="btn btn-dark">
+                                        PAGAR
+                                    </button>
+                                </form>
+
+                            </td>
+
+                            <td>{{$pendiente->descripcion}}</td>
+
+
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+</div>
 @stop
 
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
 @stop
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+
 <script>
     console.log('Hi!');
 </script>
@@ -297,6 +375,50 @@ $("#newModalForm").validate({
     }
     toastr.success("{{ session('agregado') }}");
     @endif
+</script>
+<script>
+    $(document).ready(function() {
+
+        var table = $('#clientes').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+            },
+            responsive: true,
+            paging: false,
+            info: false,
+            searching: false,
+        });
+    });
+</script>
+<script>
+    $('.pagar').submit(function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Pagar?',
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#5cb85c',
+            cancelButtonText: 'No',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, pagar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                /*     Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                ) */
+
+                this.submit();
+            }
+        })
+
+    });
 </script>
 
 @stop
