@@ -214,20 +214,20 @@
 
 </div>
 
+@if(! $pendiente->isEmpty())
 <div class="row">
-
     <section class="col-lg-12 connectedSortable ui-sortable">
 
         <div class="card-secondary" style="position: relative; left: 0px; top: 0px;">
             <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                <i class="fa fa-exclamation-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
                     Pendiente
                 </h3>
 
             </div>
             <div class="card-body">
-               <!--  <style>
+                <!--  <style>
                     table.dataTable thead tr {
                         background-color: black;
                     }
@@ -242,11 +242,9 @@
                         </tr>
                     </thead>
                     <tbody>
-
                         @foreach($pendiente as $pendiente)
                         <tr>
                             <td>{{$pendiente->fecha}}</td>
-
                             <td>{{$pendiente->cantidad}}</td>
                             <td>
                                 <form action="{{route('saldo_pendiente.update' ,$pendiente->id)}}" method="POST" class="pagar">
@@ -258,29 +256,19 @@
                                 </form>
 
                             </td>
-
                             <td>{{$pendiente->descripcion}}</td>
-
-
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-
-
-
-
-
-
-
     </section>
-
-
-
+    @else
+    @endif
 
 </div>
+
 @stop
 
 @section('css')

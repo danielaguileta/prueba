@@ -15,7 +15,6 @@
         <div class="card-body">
 
             <div class="card-content">
-
             </div>
             <style>
                 table.dataTable thead tr {
