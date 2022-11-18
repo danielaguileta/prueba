@@ -18,9 +18,13 @@
             <div class="card-content">
 
             </div>
-
+<style>
+    table.dataTable thead tr {
+  background-color: black;
+}
+</style>
             <table id="clientes" class="display responsive nowrap" style="width:100%">
-                <thead class="thead-dark">
+                <thead class="text-white">
                     <tr>
                         <th>FECHA</th>
                         <th>MONTO</th>
@@ -85,6 +89,7 @@
             responsive: true,
             paging: false,
             info: false,
+            ordering: false,
         });
     });
 </script>
